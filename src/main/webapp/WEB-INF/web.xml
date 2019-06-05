@@ -4,6 +4,29 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <!--处理中文乱码的问题-->
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!--设置访问静态资源-->
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.css</url-pattern>
+  </servlet-mapping>
 
   <servlet>
     <servlet-name>springmvc</servlet-name>
@@ -11,7 +34,7 @@
     <!--配置springMVC.xml的路径-->
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:springmvc.xml</param-value>
+      <param-value>classpath:AnnoSpringMVC.xml</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>

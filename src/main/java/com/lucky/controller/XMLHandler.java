@@ -22,6 +22,7 @@ public class XMLHandler implements Controller{
         modelAndView.addObject("user",user);
         //添加模型视图
         modelAndView.setViewName("index");
+
         return modelAndView;
     }
 }
